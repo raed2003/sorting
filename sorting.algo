@@ -1,0 +1,38 @@
+ program InsertionSort;
+ type
+  IntArray = array of Integer;
+
+ procedure InsertionSort(var arr: IntArray);
+ var
+  i, j, key: Integer;
+ begin
+  for i := 1 to Length(arr) - 1 do
+  begin
+    key := arr[i];
+    j := i - 1;
+
+    while (j >= 0) and (arr[j] > key) do
+    begin
+      arr[j + 1] := arr[j];
+      j := j - 1;
+    end;
+
+    arr[j + 1] := key;
+  end;
+ end;
+
+ var
+  arr: IntArray;
+  i: Integer;
+
+ begin
+  SetLength(arr, 5);
+  arr[0] := 5;
+  arr[1] := 2;
+  arr[2] := 4;
+  arr[3] := 1;
+  arr[4] := 3;
+  InsertionSort(arr);
+  for i := 0 to Length(arr) - 1 do
+    Write(arr[i], "  ");
+ end.
